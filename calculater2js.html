@@ -1,0 +1,112 @@
+<style >
+	*
+	{
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		background-color: #ecf0f3;
+		font-family: sans-serif;
+		outline: none;
+	}
+	.container
+	{
+      height: 550px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+	}
+	.calculator
+	{
+       background-color: #ecf0f3;
+       padding: 15px;
+       border-radius: 30px;
+       box-shadow: inset 5px 5px 12px #ffffff,
+                         5px 5px 12px rgba(0,0,0,.16);
+       display: grid;  
+       grid-template-columns: repeat(4,65px);                
+
+	}
+	input
+	{
+		grid-column: span 4;
+		height: 40px;
+		width: 260px;
+		background-color: #ecf0f3;
+		box-shadow: inset -5px -5px 12px #ffffff,
+		             inset 5px 5px 12px rgba(0,0,0,.16);
+        border: none;
+        border-radius: 30px;
+        color: rgb(70, 70, 70);
+        font-size: 24px;
+        text-align: end;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        padding: 20px;
+	}
+	button
+	{
+		height: 48px;
+		width: 48px;
+		background-color: #ecf0f3;
+		box-shadow: inset -5px -5px 12px #ffffff,
+		             inset 5px 5px 12px rgba(0,0,0,.16);
+		 border: none;  
+		 border-radius: 50%; 
+		 margin: 8px;  
+		 font-size: 16px;       
+	}
+	.equal
+	{
+		width: 115px;
+		border-radius: 40px;
+		box-shadow: inset -5px -5px 12px #ffffff,
+		             inset 5px 5px 12px rgba(0,0,0,.16);
+	}
+</style>
+<div class="container">
+	<div class ="calculator">
+<input type="text" name="" id="i1" value="0" />
+<button onclick="val('7')">7</button>
+<button onclick="val('8')">8</button>
+<button onclick="val('9')">9</button>
+<button onclick="clr()">C</button>
+<button onclick="val('4')">4</button>
+<button onclick="val('5')">5</button>
+<button onclick="val('6')">6</button>
+<button onclick="val('/')">/</button>
+<button onclick="val('1')">1</button>
+<button onclick="val('2')">2</button>
+<button onclick="val('3')">3</button>
+<button onclick="val('*')">*</button>
+<button onclick="val('.')">.</button>
+<button onclick="val('0')">0</button>
+<button onclick="val('+')">+</button>
+<button onclick="val('-')">-</button>
+<button onclick="val('**2')">x<sup>2</sup></button>
+<button onclick="rchar()">c</button>
+<button onclick="res('=')" class="equal">=</button>
+
+</div>
+</div>
+<script >
+	function rchar() {
+		var t=document.getElementById('i1').value;
+		t=t.substring(0,t.length-1);
+		document.getElementById('i1').value=t;
+	}
+	function clr()
+	{
+        document.getElementById('i1').value=0;
+	}
+	function res()
+	{
+		var t=document.getElementById('i1').value;
+		document.getElementById('i1').value=eval(t);
+	}
+	function val(n)
+	{
+		var t=document.getElementById('i1').value;
+		document.getElementById('i1').value=t+n;
+	}
+</script>
